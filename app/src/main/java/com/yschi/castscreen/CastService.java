@@ -35,6 +35,7 @@ import android.os.Handler;
 import android.os.IBinder;
 import android.os.Message;
 import android.os.Messenger;
+import android.os.StrictMode;
 import android.util.Log;
 import android.view.Surface;
 
@@ -161,6 +162,12 @@ public class CastService extends Service {
     @Override
     public void onCreate() {
         super.onCreate();
+        StrictMode.ThreadPolicy policy =
+                new StrictMode.ThreadPolicy.Builder()
+                        .permitAll()
+                        .penaltyLog()
+                        .build();
+        StrictMode.setThreadPolicy(policy);
         mMediaProjectionManager = (MediaProjectionManager) getSystemService(Context.MEDIA_PROJECTION_SERVICE);
         mBroadcastIntentFilter = new IntentFilter();
         mBroadcastIntentFilter.addAction(Common.ACTION_STOP_CAST);
