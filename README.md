@@ -6,6 +6,8 @@ Demo video: https://youtu.be/D_DSuvFz_sg
 ## Requirments
 * Gstreamer 1.0 with H264 decoder (h264parse, avdec_h264) 
 * adb for mirror via USB
+### for building the CastScreen android app
+* install android studio (on arch, do `yaourt -S android-studio`)
 
 ## With native receiver
 * If you are not on an ARM machine, ignore outputs from *_arm targets, or remove them from the Makefile.
@@ -14,6 +16,13 @@ Demo video: https://youtu.be/D_DSuvFz_sg
 $ cd receiver
 $ make
 ```
+
+## Building the CastScreen android app
+* open app/ directory as a project in android studio
+* build the project
+* the apk is in `app/build/outputs/apk/debug/app-debug.apk`
+
+
 ### Via WiFi
 1. Launch receiver
 ```
